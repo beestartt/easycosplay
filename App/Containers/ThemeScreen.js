@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react'
-import { View, ScrollView, Text, Image, StyleSheet } from 'react-native'
+import { View, ScrollView, Text, Image } from 'react-native'
 import { Colors, Fonts, Images } from '../Themes'
 import R from 'ramda'
-import MapView from 'react-native-maps'
 
 // Styles
 import styles from './Styles/ThemeScreenStyle'
@@ -61,29 +60,32 @@ export default class UsageExamplesScreen extends React.Component {
   }
 
   render () {
+    return (
+      <View style={styles.mainContainer}>
+        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
+        <ScrollView style={styles.container}>
+          <View style={styles.section} key='colors-header'>
+            <Text style={styles.sectionText} key='colors'>List of Theme specific settings.  Auto-generated from Themes folder.</Text>
+          </View>
+          <View style={styles.sectionHeaderContainer}>
+            <Text style={styles.sectionHeader}>Colors</Text>
+          </View>
+          <View style={styles.colorsContainer}>
+            {this.renderColors()}
+          </View>
 
-        return (
-            <View style ={stylesx.container}>
-                <MapView
-                    style={stylesx.map}
-                    initialRegion={{
-                      latitude: 37.78825,
-                      longitude: -122.4324,
-                      latitudeDelta: 0.0922,
-                      longitudeDelta: 0.0421,
-                    }}
-                    >
-                </MapView>
-            </View>
-        )
+          <View style={styles.sectionHeaderContainer}>
+            <Text style={styles.sectionHeader}>Fonts</Text>
+          </View>
+          {this.renderFonts()}
+
+          <View style={styles.sectionHeaderContainer}>
+            <Text style={styles.sectionHeader}>Styles</Text>
+          </View>
+          {this.renderStyles()}
+
+        </ScrollView>
+      </View>
+    )
   }
 }
-
-const stylesx = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  map: {
-    flex: 1
-  },
-});
