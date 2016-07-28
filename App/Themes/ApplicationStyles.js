@@ -42,6 +42,23 @@ const ApplicationStyles = {
       padding: Metrics.smallMargin,
       marginBottom: Metrics.smallMargin,
       marginHorizontal: Metrics.smallMargin
+    },
+    title_bar: {
+      flex: 1,
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      resizeMode: 'stretch',
+      width: Metrics.screenWidth,
+      height: Metrics.navBarHeight + 10,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    title_bar_logo: {
+      width: Metrics.screenWidth / 2,
+      height: Metrics.screenWidth / 8,
     }
   },
   darkLabelContainer: {

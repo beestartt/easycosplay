@@ -6,6 +6,8 @@ I18n.fallbacks = true
 // All translations for the app go here:
 I18n.translations = {
   en: {
+    search_field: 'Batman, sword, ...',
+    login_description: 'Find the store near you',
     signIn: 'Sign In',
     logOut: 'Log Out',
     loginLogoutExampleTitle: 'Login/Logout Redux + Sagas Example',
@@ -54,6 +56,11 @@ I18n.translations = {
     themeSettings: 'Réglage des thèmes',
     deviceDetails: 'Détails du périphérique',
     noItems: 'Aucun'
+  },
+  pt: {
+    search_field: 'Batman, sword, ...',
+    login_description: 'Encontre uma loja próxima de você',
+    loginWithFacebook: 'Entrar com Facebook'
   }
 }
 
