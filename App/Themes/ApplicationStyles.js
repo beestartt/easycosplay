@@ -58,7 +58,7 @@ const ApplicationStyles = {
     },
     title_bar_logo: {
       width: Metrics.screenWidth / 2,
-      height: Metrics.screenWidth / 8,
+      height: Metrics.screenWidth / 8
     }
   },
   darkLabelContainer: {

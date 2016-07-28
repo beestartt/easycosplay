@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React from 'react'
+=======
+import React, { PropTypes } from 'react'
+>>>>>>> d719f685e28b35b9e1f786c3c4a0d24cc875fdd0
 import { View, ScrollView, Text, Image } from 'react-native'
 import { Colors, Fonts, Images } from '../Themes'
 import R from 'ramda'

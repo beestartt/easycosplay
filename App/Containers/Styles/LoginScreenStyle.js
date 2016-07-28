@@ -27,7 +27,7 @@ export default StyleSheet.create({
     width: 0.8 * Metrics.screenWidth,
     height: 60,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   description: {
     textAlign: 'center',

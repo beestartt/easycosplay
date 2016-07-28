@@ -1,22 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
-View,
-StatusBar,
-Image
+View
 } from 'react-native'
 import MapView from 'react-native-maps'
-import { calculateRegion } from '../Lib/MapHelpers'
-import MapCallout from '../Components/MapCallout'
 import Styles from './Styles/MapviewExampleStyle'
-import {Images} from '../Themes'
 import NavBarBackground from '../Components/NavBarBackground'
 import SearchField from '../Components/SearchField'
 
 class MapScreen extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   render () {
     return (
