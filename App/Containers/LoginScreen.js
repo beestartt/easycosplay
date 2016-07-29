@@ -12,6 +12,9 @@ import Actions from '../Actions/Creators'
 import {Images, Metrics, Colors} from '../Themes'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import {
+  LoginManager
+} from 'react-native-fbsdk'
 
 // I18n
 import I18n from '../I18n/I18n.js'
@@ -34,7 +37,18 @@ class LoginScreen extends React.Component {
   }
 
   loginFacebook () {
-    this.props.mapScreen()
+    LoginManager.logInWithReadPermissions(['public_profile'])
+      .then((result) => {
+        if (result.isCancelled) {
+          window.alert('Login cancelled')
+        } else {
+          window.alert(`Login success with permissions: ${result.grantedPermissions.toString()}`)
+          this.props.mapScreen()
+        }
+      },
+      (error) => {
+        window.alert(`Login fail with error: ${error}`)
+      })
   }
 
   render () {
