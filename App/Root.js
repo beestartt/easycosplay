@@ -6,6 +6,18 @@ import DebugSettings from './Config/DebugSettings'
 import NavigationRouter from './Navigation/NavigationRouter'
 // import './Config/PushConfig'
 
+// FIREBASE CONFIG
+import * as firebase from 'firebase'
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyAJVAYk9x5fpj69Nbqy_vBPHSg9p8pp7UY',
+  authDomain: 'easycosplay-4aee5.firebaseapp.com',
+  databaseURL: 'https://easycosplay-4aee5.firebaseio.com',
+  storageBucket: 'easycosplay-4aee5.appspot.com'
+}
+
+firebase.initializeApp(firebaseConfig)
+
 // Styles
 import styles from './Containers/Styles/RootStyle'
 

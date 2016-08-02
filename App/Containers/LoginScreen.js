@@ -13,11 +13,14 @@ import {Images, Metrics, Colors} from '../Themes'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import {
-  LoginManager
+  LoginManager,
+  AccessToken
 } from 'react-native-fbsdk'
 
 // I18n
 import I18n from '../I18n/I18n.js'
+
+import * as firebase from 'firebase'
 
 class LoginScreen extends React.Component {
 
@@ -37,13 +40,26 @@ class LoginScreen extends React.Component {
   }
 
   loginFacebook () {
-    LoginManager.logInWithReadPermissions(['public_profile'])
+    const auth = firebase.auth()
+    const provider = firebase.auth.FacebookAuthProvider
+    LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_friends'])
       .then((result) => {
         if (result.isCancelled) {
           window.alert('Login cancelled')
         } else {
-          window.alert(`Login success with permissions: ${result.grantedPermissions.toString()}`)
-          this.props.mapScreen()
+          AccessToken.getCurrentAccessToken()
+            .then(accessTokenData => {
+              const credential = provider.credential(accessTokenData.accessToken)
+              return auth.signInWithCredential(credential)
+            })
+            .then(credData => {
+              console.log(credData)
+              this.props.mapScreen()
+            })
+            .catch(err => {
+              window.alert('Login cancelled')
+              console.log(err)
+            })
         }
       },
       (error) => {
@@ -62,7 +78,7 @@ class LoginScreen extends React.Component {
         <Text style={[Styles.description, this.state.description]}>
           {I18n.t('login_description')}
         </Text>
-        <View style={[Styles.loginButtonWrapper]}>
+        <View style={[Styles.loginButtonWrapper]} >
           <Icon.Button name='facebook' size={30} style={[Styles.facebookButton]} backgroundColor={Colors.facebook} onPress={() => this.loginFacebook()}>
             <Text style={[Styles.facebookButtonText]}>{I18n.t('loginWithFacebook')}</Text>
           </Icon.Button>

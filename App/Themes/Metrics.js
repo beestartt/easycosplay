@@ -27,7 +27,8 @@ const metrics = {
     medium: 40,
     large: 60,
     logo: 300
-  }
+  },
+  elevation: 10
 }
 
 export default metrics

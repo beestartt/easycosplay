@@ -22,6 +22,7 @@ export default StyleSheet.create({
     //   height: 1,
     //   width: 1
     // }
+
   },
   facebookButton: {
     width: 0.8 * Metrics.screenWidth,
